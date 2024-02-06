@@ -13,8 +13,8 @@ import loginRoute from "./module/login.js";
 
 
 
-// const HOSTNAME = process.env.SERVER_IP || "127.0.0.1";
-// const PORT = process.env.SERVER_PORT || 3000;
+const HOSTNAME = process.env.SERVER_IP || "127.0.0.1";
+const PORT = process.env.SERVER_PORT || 3000;
 
 // setting initial configuration for upload file, web server (express), and cors
 const upload = multer({ dest: "uploads/" });
