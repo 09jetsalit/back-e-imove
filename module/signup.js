@@ -3,9 +3,10 @@ import { checkMissingField } from '../utils/requestUtils.js'; // Import the chec
 import databaseClient from '../services/database.mjs'; // Import the databaseClient
 
 // Define the signup function
-const DATA_KEY_SIGNUP = ["fullName", "email", "password", "gender", "dob", "phoneNumber", "typemem"];
+// const DATA_KEY_SIGNUP = ["fullName", "email", "password", "gender", "dob", "phoneNumber", "typemem"];
 
 const signupRoute = async (req, res) => {
+  const DATA_KEY_SIGNUP = ["fullName", "email", "password", "gender", "dob", "phoneNumber", "typemem"];
   let body = req.body;
 
   const [isChecked , setISsChecked] = checkMissingField(DATA_KEY_SIGNUP,body);
