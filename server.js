@@ -13,7 +13,7 @@ import loginRoute from "./module/login.js";
 
 
 
-const HOSTNAME = process.env.SERVER_IP || "127.0.0.1";
+// const HOSTNAME = process.env.SERVER_IP || "127.0.0.1";
 const PORT = process.env.SERVER_PORT || 3000;
 
 // setting initial configuration for upload file, web server (express), and cors
@@ -33,7 +33,7 @@ webServer.post("/login", loginRoute);
 
 
 // initilize web server
-const currentServer = webServer.listen(PORT, HOSTNAME, () => {
+const currentServer = webServer.listen(PORT, () => {
   console.log(
     `DATABASE IS CONNECTED: NAME => ${databaseClient.db().databaseName}`
   );
