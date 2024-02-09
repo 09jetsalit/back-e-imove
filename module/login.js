@@ -46,9 +46,9 @@ const loginRoute = async (req, res) => {
 };
 
 // Function to create JWT token
-function createJwt(mock) {
+function createJwt(data) {
   const jwtSecretKey = process.env.JWT_SECRET_KEY;
-  const data = { mock };
+  // const data = { data };
   const token = jwt.sign(data, jwtSecretKey, {
     expiresIn: "7d",
   });
