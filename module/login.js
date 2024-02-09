@@ -39,7 +39,7 @@ const loginRoute = async (req, res) => {
 
 
   // Generate JWT token
-  const token = createJwt(body.email);
+  const token = createJwt(body);
   
   // Send response with token and body
   res.json({ token });
