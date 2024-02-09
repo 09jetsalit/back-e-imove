@@ -42,7 +42,7 @@ const loginRoute = async (req, res) => {
   const token = createJwt(body.email);
   
   // Send response with token and body
-  res.cookie({ token });
+  res.json({ token });
 };
 
 // Function to create JWT token
