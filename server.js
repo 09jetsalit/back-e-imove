@@ -29,7 +29,7 @@ webServer.post("/signup", signupRoute);
 webServer.post("/login" ,  loginRoute);
 
 
-webServer.get("/", (req, res) => res.send("Hi"));
+webServer.get("/", (req, res) => {res.send("Hi")});
 
 
 
