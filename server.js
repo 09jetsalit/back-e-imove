@@ -26,7 +26,7 @@ webServer.use(express.json());
 // code here
 webServer.post("/signup", signupRoute);
 
-webServer.post("/login",authmidleware ,  loginRoute);
+webServer.post("/login" ,  loginRoute);
 
 
 webServer.get("/", (req, res) => res.send("Hi"));
