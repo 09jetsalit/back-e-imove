@@ -8,15 +8,15 @@ import { checkMissingField } from "../utils/requestUtils.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-
-const loginRoute = async (req , res) => {
-    let body = req.body;
-  const LOGIN_DATA_KEYS = ["email" , "password"]
+const loginRoute = async (req, res) => {
+  let body = req.body;
+  const LOGIN_DATA_KEYS = ["email", "password"];
   const [isBodyChecked, missingFields] = checkMissingField(
     LOGIN_DATA_KEYS,
     body
   );
-  console.log(body);
+  // console.log(body);
+  // res.send(body);
 
   if (!isBodyChecked) {
     res.send(`Missing Fields: ${"".concat(missingFields)}`);
@@ -36,20 +36,26 @@ const loginRoute = async (req , res) => {
     res.send("E-Mail or Password invalid");
     return;
   }
-  res.json({ token: createJwt(body.email) });
 
 
-  ///////////////////////////////////////////
-  function createJwt(email) {
-    const jwtSecretKey = process.env.JWT_SECRET_KEY;
-    const data = { email: email }
-    const token = jwt.sign(data, jwtSecretKey, {
-      expiresIn: "7d",
-    });
+  // Generate JWT token
+  const token = createJwt(body.email);
   
-    return token;
-  }
-
+  // Send response with token and body
+  res.cookie({ token });
 };
+
+// Function to create JWT token
+function createJwt(email,password) {
+  const jwtSecretKey = process.env.JWT_SECRET_KEY;
+  const data = { email: email,pass: password };
+  const token = jwt.sign(data, jwtSecretKey, {
+    expiresIn: "7d",
+  });
+  return token;
+};
+  ///////////////////////////////////////////
+
+
 
 export default loginRoute;
