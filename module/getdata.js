@@ -5,7 +5,8 @@ const getdata = async (req, res) => {
   const data = await databaseClient
     .db()
     .collection("members")
-    .findOne({ email: body.email });
+    .findOne({ email: body.email })
+    .toArray();
 
     const sendData = data;
     res.send(sendData);
