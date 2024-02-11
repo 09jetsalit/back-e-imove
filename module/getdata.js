@@ -5,10 +5,10 @@ const getdata = async (req, res) => {
   const data = await databaseClient
     .db()
     .collection("members")
-    .findOne({ email: body });
+    .findOne({ email: body.email });
 
     const sendData = data;
-    res.send(sendData);
+    res.json(sendData);
 };
 
 export default getdata;
