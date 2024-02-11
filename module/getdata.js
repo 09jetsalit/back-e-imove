@@ -8,7 +8,7 @@ const getdata = async (req, res) => {
     .findOne({ email: body.email });
 
     const sendData = data;
-    res.send(sendData);
+    res.json(sendData);
 };
 
 export default getdata;
