@@ -41,7 +41,7 @@ const currentServer = webServer.listen(PORT, () => {
   console.log(
     `DATABASE IS CONNECTED: NAME => ${databaseClient.db().databaseName}`
   );
-  console.log(`SERVER IS ONLINE`);
+  // console.log(`SERVER IS ONLINE => http://${HOSTNAME}:${PORT}`);
 });
 // => http://${HOSTNAME}:${PORT}
 
