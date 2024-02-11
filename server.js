@@ -9,6 +9,7 @@ import bcrypt from "bcrypt";
 import signupRoute from "./module/signup.js"
 import jwt from "jsonwebtoken";
 import loginRoute from "./module/login.js";
+import getdata from "./module/getdata.js";
 
 
 
@@ -28,6 +29,7 @@ webServer.post("/signup", signupRoute);
 
 webServer.post("/login" ,  loginRoute);
 
+webServer.get("/data" , getdata);
 
 webServer.get("/", (req, res) => {res.send("Hi")});
 
