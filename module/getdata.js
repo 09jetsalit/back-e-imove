@@ -8,8 +8,9 @@ const getdata = async (req, res) => {
     .collection("members")
     .findOne({ email: body.email });
 
+    console.log(data);
     const sendData = data;
-    res.json(sendData);
+    res.send(sendData);
 };
 
 export default getdata;
